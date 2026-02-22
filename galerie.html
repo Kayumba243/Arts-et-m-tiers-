@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menuiserie Artisanale - Galerie</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; }
+  header { background:#8B4513; color:white; padding:20px; text-align:center; }
+  nav a { margin:0 15px; color:white; text-decoration:none; }
+  .slider { position: relative; max-width:900px; margin:30px auto; overflow:hidden; }
+  .slides { display:flex; transition:0.6s ease-in-out; }
+  .slides img { width:100%; border-radius:10px; flex-shrink:0; }
+  .buttons { position:absolute; top:50%; width:100%; display:flex; justify-content:space-between; transform:translateY(-50%); }
+  .btn { background:rgba(0,0,0,0.5); color:white; border:none; padding:10px; cursor:pointer; }
+  @media(max-width:768px){ .slider{width:90%;} }
+  footer { background:#333; color:white; text-align:center; padding:10px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Menuiserie Artisanale</h1>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="services.html">Services</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="apropos.html">À propos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="slider">
+  <div class="slides">
+    <!-- Images libres de qualité -->
+    <img src="images/img4.jpg" >
+    <img src="images/img3.jpg" >
+    <img src="images/img2.jpg" >
+    <img src="images/img1.jpg">
+    <img src="images/img5.jpg" >
+    <img src="images/img6.jpg" >
+    <img src="images/img7.jpg" >
+    <img src="images/img8.jpg">
+    <img src="images/img9.jpg" >
+    <img src="images/img10.jpg" >
+    <img src="images/img11.jpg" >
+    <img src="images/img12.jpg">
+    <img src="images/img13.jpg" >
+    <img src="images/img14.jpg" >
+    <img src="images/img15.jpg" >
+    <img src="images/img16.jpg">
+    <img src="images/img17.jpg" >
+    <img src="images/img18.jpg" >
+    <img src="images/img19.jpg" >
+  </div>
+  <div class="buttons">
+    <button class="btn" id="prev">&#10094;</button>
+    <button class="btn" id="next">&#10095;</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Menuiserie Artisanale | Tous droits réservés</p>
+</footer>
+
+<script>
+let current = 0;
+const slides = document.querySelector('.slides');
+const total = document.querySelectorAll('.slides img').length;
+
+document.getElementById('next').onclick = () => {
+  current = (current + 1) % total;
+  slides.style.transform = `translateX(-${current * 100}%)`;
+};
+document.getElementById('prev').onclick = () => {
+  current = (current - 1 + total) % total;
+  slides.style.transform = `translateX(-${current * 100}%)`;
+};
+setInterval(() => {
+  current = (current + 1) % total;
+  slides.style.transform = `translateX(-${current * 100}%)`;
+}, 5000);
+</script>
+
+</body>
+</html>
